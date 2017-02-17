@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- Should override IE compatibility mode -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- Fit to device -->
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/>
+    <!-- Does the intranet search index pages? if so consider content -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Datatables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+
+    <!-- jquery JS -->
+    <!-- https://code.jquery.com/ -->
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+
+    <!-- Datatables JS -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+
+    <!-- Load team data from external .js file -->
+    <script src="team.js"></script>
+
+    <!-- Tab Title -->
+    <title>Datatable</title>
+  </head>
+  <body>
+    <!-- Div for table -->
+    <table id="table" class="display" width="100%"></table>
+
+    <script>
+      // Print array to console to test
+      console.log(dataset);
+
+      // Initialise
+      $(document).ready(function() {
+        $('#table').DataTable({
+            data: dataset,
+            columns: [
+                { title: "Name" },
+                { title: "Position Title" },
+                { title: "Site" },
+                { title: "Extension" },
+            ],
+            orderData: [1, 0]
+          });
+      });
+    </script>
+  </body>
+</html>
